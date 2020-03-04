@@ -6,7 +6,7 @@ import os
 
 
 def main():
-    url = "https://github.com/kuman514"
+    url = "https://twitter.com/kumankoishi"
     
     with urllib.request.urlopen(url) as response:
         html = response.read()
