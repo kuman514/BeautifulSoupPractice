@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import urllib.request
 import urllib.parse
+import requests
+import os
 
 
 def main():
@@ -23,7 +25,15 @@ def main():
             if source_index == -1:
                 continue
             
-            print(source[source_index:])
+            lnk = source[source_index:]
+            print(lnk)
+            
+            try:
+                with open(os.path.basename(lnk), "wb") as f:
+                    f.write(requests.get(lnk).content)
+            except:
+                print("Error Occured")
+                print("Pass This Link: " + lnk)
 
 
 if __name__ == '__main__':
